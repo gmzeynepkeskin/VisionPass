@@ -1,47 +1,81 @@
 # VisionPass
-### Consent-Based Autonomous Mobility Identity Protocol
+## Autonomous Consent-Based Mobility Identity Protocol
 
-VisionPass is a vision project developed for the **Turkcell Yarının Teknoloji Liderleri Yarışması** by Zeynep Keskin, a Food Engineering student at Ankara University and a system architecture candidate.
+> Built as a vision project for Turkcell's "Yarının Teknoloji Liderleri" Program.
 
-## 🚀 Vision
-VisionPass aims to eliminate physical turnstiles and hardware dependencies in public transportation by introducing a **fully digital, consent-driven mobility identity layer** integrated into the Paycell ecosystem.
+VisionPass is a consent-based digital mobility identity protocol designed to eliminate physical turnstiles and hardware dependency in public transportation systems.
 
-## ❗ Problem Definition
-Current urban transportation systems rely on physical cards, QR scans, or turnstiles, causing:
+Developed by Zeynep Keskin, Ankara University Food Engineering student and system architecture candidate, the project combines computer vision, edge AI, and telecom ecosystem integration to enable frictionless urban mobility.
+
+---
+
+## 🚀 Problem
+
+Urban transportation systems still rely on:
+- Physical transportation cards
+- QR code scanning
+- Hardware-based turnstiles
+
+These create:
 - Bottlenecks during peak hours
-- High operational and maintenance costs
-- Hardware dependency and scalability limits
+- High operational costs
+- Maintenance dependency
+- Scalability limitations
+
+---
 
 ## 💡 Solution
-VisionPass enables **free-flow public transportation** using existing camera infrastructure and edge AI technologies, operating only with explicit user consent through Paycell.
+
+VisionPass introduces a **free-flow transportation model** powered by:
+
+- Real-time human detection
+- Consent-based biometric identity verification
+- Autonomous fare calculation
+- Background digital payment integration via Paycell
+
+The system operates only for users who provide explicit consent within the Paycell ecosystem.
+
+---
 
 ## 🧠 System Architecture
-The system operates in three main stages:
 
-### 1. Detection
-Real-time human detection using YOLOv8 for millisecond-level accuracy in crowded environments.
+### 1️⃣ Detection Layer  
+Real-time person detection using YOLOv8 in high-density environments.
 
-### 2. Identity Verification
-Face embeddings are generated using ArcFace and immediately converted into irreversible encrypted vectors.  
-⚠️ No raw images are stored or transmitted.
+### 2️⃣ Identity Vectorization  
+Face embeddings generated using ArcFace are immediately converted into encrypted, non-reversible identity vectors.  
+No raw images are stored.
 
-### 3. Autonomous Fare Collection
-Entry and exit points are matched, travel distance is calculated, and fare collection is executed automatically via Paycell APIs in the background.
+### 3️⃣ Autonomous Fare Engine  
+Entry and exit stations are matched, distance is calculated, and fare is automatically charged via Paycell APIs.
 
-## 🔐 Privacy by Design
-- No video storage
-- No facial image storage
-- On-device processing
-- Encrypted, non-reversible identity vectors
-- Explicit user consent via Paycell application
+---
+
+## 🔐 Privacy & Security (Privacy by Design)
+
+- No video storage  
+- No facial image storage  
+- On-device processing  
+- Encrypted identity vectors  
+- Explicit user consent required  
+
+VisionPass is not a surveillance system.  
+It is a **consent-driven mobility identity infrastructure**.
+
+---
 
 ## 🛠 Technology Stack
+
 - Python
 - OpenCV
-- YOLOv8
+- YOLOv8 (Ultralytics)
 - ArcFace
 - DeepSORT
+- PyTorch
+
+---
 
 ## 📦 Installation (PoC)
+
 ```bash
 pip install -r requirements.txt
