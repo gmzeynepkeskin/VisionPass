@@ -1,17 +1,21 @@
-# VisionPass - Biyometrik Ücretlendirme Algoritma Taslağı
-# Zeynep Keskin - Ankara Üniversitesi
+# VisionPass Projesi - Algoritma Taslağı
+# Zeynep Keskin - Ankara Üni.
 
-def yolcu_dogrula(v_imza, istasyon):
+import time
+
+def yolcu_analiz_et(vektor_verisi, durak_adi):
     """
-    Kamera verisinden gelen matematiksel imzayı (vector) kontrol eder.
-    KVKK gereği ham görüntü saklanmaz.
+    NOT: KVKK gereği fotoğraf tutmuyoruz, sadece vektörleri eşleştiriyoruz.
     """
-    print(f"--- {istasyon} Durağı: Yolcu Analiz Ediliyor ---")
-    # Paycell API sorgusu burada simüle edilir
-    print(f"[LOG] İşlem Onaylandı. Paycell ile ödeme tetiklendi.")
+    print(f"--- {durak_adi} Durağı Analiz Ediliyor ---")
+    
+    # TODO: Buraya gerçek bir model (YOLOv8) entegre edilecek
+    print(f"[Paycell Sorgusu] Kullanıcı doğrulanıyor...")
+    time.sleep(1) # Simülasyon için kısa bir bekleme
+    print(f"[SİSTEM] İşlem başarılı. Yolcu ID: {vektor_verisi[:6]}")
     return True
 
 if __name__ == "__main__":
-    # Örnek Bir Geçiş Senaryosu
-    test_imza = "vec_827364" 
-    yolcu_dogrula(test_imza, "Kızılay Metro")
+    print("VisionPass Prototip Başlatılıyor...")
+    # Örnek Bir Senaryo
+    yolcu_analiz_et("vec_zeynep_2026", "Kızılay")
