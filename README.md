@@ -1,7 +1,7 @@
 # VisionPass
 ### Consent-Based Autonomous Mobility Identity Protocol
 
-VisionPass is a vision project developed for the **Turkcell Yarının Teknoloji Liderleri Programı** by Zeynep Keskin, a Food Engineering student at Ankara University and a system architecture candidate.
+VisionPass is a vision project developed for the **Turkcell Yarının Teknoloji Liderleri Yarışması** by Zeynep Keskin, a Food Engineering student at Ankara University and a system architecture candidate.
 
 ## 🚀 Vision
 VisionPass aims to eliminate physical turnstiles and hardware dependencies in public transportation by introducing a **fully digital, consent-driven mobility identity layer** integrated into the Paycell ecosystem.
