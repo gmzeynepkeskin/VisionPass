@@ -1,34 +1,123 @@
 # VisionPass
-AI-powered biometric payment
-# VisionPass: Otonom ve Temassız Biyometrik Ulaşım Ekosistemi
+## Autonomous & Contactless Biometric Mobility Ecosystem
 
-Ankara Üniversitesi Gıda Mühendisliği öğrencisi ve sistem mimarı adayı Zeynep Keskin tarafından, Turkcell "Yarının Teknoloji Liderleri" programı için geliştirilmiş bir vizyon projesidir. Bu proje, şehir içi mobilitede donanım bağımlılığını ortadan kaldırarak yolculara kesintisiz bir ulaşım deneyimi sunmayı hedefler.
+VisionPass is a Proof-of-Concept (PoC) project developed by Zeynep Keskin for the Turkcell "Yarının Teknoloji Liderleri 10" program.
 
-### Çıkış Noktası ve Problem Tanımı
-Mühendislik disiplininin temelinde yer alan proses optimizasyonunu, şehir içi ulaşım ağlarına entegre etmeyi hedefledim. Mevcut sistemlerdeki fiziksel turnikeler ve kart okutma zorunluluğu, özellikle yoğun saatlerde ciddi kapasite kayıplarına ve yüksek operasyonel maliyetlere yol açmaktadır. VisionPass, bu fiziksel bariyerleri tamamen dijitalleştirerek serbest akış prensibiyle çalışan sürdürülebilir bir altyapı sunar.
+The project aims to transform urban mobility by eliminating hardware dependency and enabling a seamless, biometric-based transit experience powered by AI and edge computing.
 
-### Sistem Mimarisi ve İşleyiş
-Sistem, istasyon giriş ve çıkışlarındaki mevcut kamera ağlarını uçta hesaplama teknolojisiyle akıllı hale getiren üç temel adımdan oluşur:
+---
 
-* **Algılama:** YOLOv8 modeli kullanılarak yüksek kalabalık ortamlarda milisaniyelik insan tespiti yapılır.
-* **Doğrulama:** ArcFace algoritması ile kişilerin yüz biyometrisi anlık olarak dijital imza niteliğindeki matematiksel vektörlere dönüştürülür.
-* **Otonom Tahsilat:** Yolcunun giriş ve çıkış yaptığı istasyonlar arasındaki mesafe hesaplanarak, ilgili ücret Paycell API üzerinden arka planda otomatik olarak tahsil edilir.
+## 🚩 Problem Statement
 
-### Veri Mahremiyeti ve Güvenlik
-Sistemin mimarisi Tasarımda Gizlilik ilkesi üzerine inşa edilmiştir. Kameralar tarafından algılanan ham görüntüler hiçbir sunucuda veya veritabanında saklanmaz. Yüz verisi anında geri döndürülemez şifreli hash kodlarına çevrilir. Ek olarak sistem, yalnızca Paycell uygulamasından açık rıza vermiş kullanıcılar için şifreli olarak çalışır.
+Current public transportation systems rely on:
 
-### Teknoloji Yığını
-* **Görüntü İşleme:** Python ve OpenCV
-* **Yapay Zeka Modelleri:** YOLOv8 ve ArcFace
-* **Nesne Takip Algoritmaları:** DeepSORT
+- Physical turnstiles
+- Plastic transportation cards
+- Manual QR scanning
 
-### Kurulum (Installation)
-Bu proje şu an Kavram Kanıtı (PoC) aşamasındadır. Simülasyon ortamındaki bağımlılıkları yüklemek için aşağıdaki komutu kullanabilirsiniz:
+These systems create:
+- Congestion during peak hours
+- High maintenance and operational costs
+- Hardware dependency
+- Inefficient passenger flow
 
-`pip install -r requirements.txt`
+VisionPass introduces a hybrid biometric fast-pass model integrated with Paycell.
 
-### Gelecek Vizyonu
-Kısa vadeli hedefimiz, Paycell QR entegrasyonu ile hibrit bir geçiş modeli sunmaktır. Orta ve uzun vadede ise VisionPass protokolünü tüm toplu taşıma modlarında standart hale getirerek fiziksel turnike ve plastik kart bağımlılığını tamamen ortadan kaldırmayı hedefliyoruz.
+---
 
-### Yatırımcı Sunumu
-VisionPass sisteminin finansal modelini, Turkcell ekosistemiyle olan sinerjisini, risk yönetimi senaryolarını ve gelecek yol haritasını detaylandırdığım sunum dosyasına, bu repoda yer alan **VisionPass_PitchDeck.pdf** belgesi üzerinden ulaşabilirsiniz.
+## 🧠 System Architecture
+
+The system consists of three core AI-driven layers:
+
+### 1️⃣ Detection (Computer Vision)
+- YOLOv8 is used for real-time person detection in crowded environments.
+- Millisecond-level inference on edge devices.
+
+### 2️⃣ Biometric Verification
+- ArcFace converts facial data into encrypted mathematical embeddings.
+- No raw image is stored.
+- Privacy-by-design architecture.
+
+### 3️⃣ Autonomous Payment
+- Entry and exit stations are detected.
+- Distance-based fare is calculated.
+- Payment is automatically processed via Paycell API (with user consent).
+
+---
+
+## 🔐 Privacy & Security
+
+VisionPass operates only for users who provide explicit consent within the Paycell application.
+
+- No raw facial images are stored.
+- Biometric embeddings are encrypted.
+- Users can delete their biometric data at any time.
+- System follows KVKK & GDPR principles.
+
+---
+
+## 🛠 Tech Stack
+
+- Python
+- OpenCV
+- YOLOv8 (Ultralytics)
+- ArcFace
+- DeepSORT
+- PyTorch
+
+---
+
+## ⚙ Installation
+
+Install dependencies:
+
+pip install -r requirements.txt
+
+Run demo:
+
+python main.py
+
+---
+
+## 🧪 Current Status
+
+This project is currently in Proof-of-Concept stage.
+
+The demo version performs:
+- Real-time person detection
+- Bounding box tracking
+- AI-based infrastructure simulation
+
+---
+
+## 🚀 Future Roadmap
+
+Phase 1: Turkcell internal pilot (Plaza access control)  
+Phase 2: Campus or AVM pilot integration  
+Phase 3: Public transportation hybrid fast-pass deployment  
+
+Long-term goal: Establish VisionPass protocol as a standard digital mobility layer in Türkiye.
+
+---
+
+## 📊 Business Model
+
+- Micro transaction commission via Paycell
+- B2B infrastructure licensing
+- Hardware reduction savings
+- API-based smart mobility integration
+
+---
+
+## 📎 Pitch Deck
+
+See VisionPass_PitchDeck.pdf inside this repository.
+
+---
+
+## 👩‍💻 Project Owner
+
+Zeynep Keskin  
+Ankara University – Food Engineering  
+System Architecture Candidate  
+Turkcell "Yarının Teknoloji Liderleri 10" Applicant
