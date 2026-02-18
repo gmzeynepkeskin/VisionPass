@@ -1,6 +1,8 @@
+```txt
 ultralytics
 opencv-python
 deep-sort-realtime
+numpy
+scipy
 torch
 torchvision
-numpy
