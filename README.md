@@ -1,27 +1,22 @@
 # VisionPass
-AI-powered biometric payment system
-# 👁️ VisionPass: AI-Powered Biometric Payment System
-![AI](https://img.shields.io/badge/Tech-YOLOv8%20%7C%20ArcFace-blue.svg)
-![Partner](https://img.shields.io/badge/Integration-Paycell-orange.svg)
-![Privacy](https://img.shields.io/badge/Security-KVKK%20Compliant-green.svg)
+AI-powered biometric payment
+# 👁️ VisionPass: Turnikesiz Biyometrik Ödeme Sistemi
 
-**VisionPass**, toplu taşımada turnikeleri ve fiziksel kartları ortadan kaldıran, yapay zeka destekli bir "yüzün senin biletindir" projesidir.
+Selam! Ben Zeynep Keskin. Ankara Üniversitesi Gıda Mühendisliği 4. sınıf öğrencisiyim. Bu proje, Turkcell "Yarının Teknoloji Liderleri" programı için geliştirdiğim, günlük hayattaki ulaşım çilesine teknolojik bir çözüm arayan vizyon çalışmamdır.
 
-## 🚀 Proje Vizyonu (Project Vision)
-Bu proje, istasyonlardaki yığılmaları önlemek ve yolculara kesintisiz bir seyahat deneyimi sunmak için geliştirilmiştir. Yolcuların giriş ve çıkış noktaları kameralar aracılığıyla tespit edilir ve gidilen mesafe kadar ücret, **Paycell** dijital cüzdanından otomatik olarak tahsil edilir.
+## 🚀 Bu Proje Nereden Çıktı?
+Bir mühendis adayı olarak sistemlerdeki verimlilik kayıpları her zaman ilgimi çekmiştir. Toplu taşımadaki turnike sıraları ve kart basma telaşının hem zaman kaybı hem de operasyonel bir yük olduğunu düşünüyorum. VisionPass ile "yüzün senin biletin olsun" diyerek bu süreci tamamen dijitalleştirmeyi hedefledim.
 
-## 🛡️ Gizlilik ve KVKK Uyumu (Privacy & GDPR)
-Sistem, "Tasarım Yoluyla Gizlilik" (Privacy by Design) prensibiyle kurgulanmıştır:
-- **Veri Anonimleştirme:** Gerçek yüz görüntüleri saklanmaz; anlık olarak geri döndürülemez matematiksel vektörlere (hash) dönüştürülür.
-- **Rıza Bazlı Geçiş:** Sadece Paycell üzerinden onay veren kullanıcılar sistemi kullanabilir.
-- **Yerinde İşleme (Edge AI):** Veriler merkeze taşınmadan istasyon bazında işlenerek güvenlik riski minimize edilir.
+## 💡 Sistem Nasıl Çalışıyor? (Basitçe)
+Sistem, istasyon giriş-çıkışlarındaki kameralar üzerinden yolcuları tanıyor. 
+* **YOLOv8** ile insanları seçiyor.
+* **ArcFace** ile bu kişileri matematiksel bir "imzaya" dönüştürüyor.
+* En sonunda gidilen mesafe hesaplanıp **Paycell** üzerinden ödeme alınıyor.
 
-## ⚙️ Teknolojik Altyapı (Tech Stack)
-- **Nesne Tespiti:** YOLOv8 (Yolcuların tespiti için).
-- **Yüz Tanıma:** ArcFace / FaceNet (Biyometrik doğrulama için).
-- **Takip Algoritması:** DeepSORT / Person Re-ID (Kalabalık içinde takip için).
-- **Yazılım:** Python & OpenCV.
+## 🛡️ Gizlilik Hakkında Notlarım (KVKK)
+En çok dikkat ettiğim nokta gizlilik oldu. Sistem asla ham fotoğraf saklamıyor. Yüzü görür görmez onu geri döndürülemez bir sayı dizisine çeviriyor. Yani sistemde sadece "matematik" var, fotoğraf yok! Ayrıca bu sistem sadece Paycell üzerinden onay veren kullanıcılar için aktif olacak şekilde kurgulandı.
 
----
-**Developer:** Zeynep Keskin  
-*Ankara Üniversitesi - Gıda Mühendisliği Adayı*
+## 🛠️ Neler Kullandım?
+* Python & OpenCV
+* Derin Öğrenme Modelleri (YOLOv8, FaceNet)
+* Takip Algoritmaları (DeepSORT)
