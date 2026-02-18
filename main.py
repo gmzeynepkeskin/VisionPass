@@ -1,21 +1,27 @@
-# VisionPass Projesi - Algoritma Taslağı
-# Zeynep Keskin - Ankara Üni.
+import cv2
+from src.detection.detector import PersonDetector
 
-import time
+def main():
+    detector = PersonDetector()
+    cap = cv2.VideoCapture(0)
 
-def yolcu_analiz_et(vektor_verisi, durak_adi):
-    """
-    NOT: KVKK gereği fotoğraf tutmuyoruz, sadece vektörleri eşleştiriyoruz.
-    """
-    print(f"--- {durak_adi} Durağı Analiz Ediliyor ---")
-    
-    # TODO: Buraya gerçek bir model (YOLOv8) entegre edilecek
-    print(f"[Paycell Sorgusu] Kullanıcı doğrulanıyor...")
-    time.sleep(1) # Simülasyon için kısa bir bekleme
-    print(f"[SİSTEM] İşlem başarılı. Yolcu ID: {vektor_verisi[:6]}")
-    return True
+    while True:
+        ret, frame = cap.read()
+        if not ret:
+            break
+
+        detections = detector.detect(frame)
+
+        for (x1, y1, x2, y2) in detections:
+            cv2.rectangle(frame, (x1, y1), (x2, y2), (0,255,0), 2)
+
+        cv2.imshow("VisionPass", frame)
+
+        if cv2.waitKey(1) & 0xFF == ord('q'):
+            break
+
+    cap.release()
+    cv2.destroyAllWindows()
 
 if __name__ == "__main__":
-    print("VisionPass Prototip Başlatılıyor...")
-    # Örnek Bir Senaryo
-    yolcu_analiz_et("vec_zeynep_2026", "Kızılay")
+    main()
