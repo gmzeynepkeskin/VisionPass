@@ -1,4 +1,3 @@
-```txt
 ultralytics
 opencv-python
 deep-sort-realtime
