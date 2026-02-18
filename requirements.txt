@@ -1,3 +1,6 @@
-opencv-python
 ultralytics
+opencv-python
+deep-sort-realtime
+torch
+torchvision
 numpy
