@@ -76,4 +76,14 @@ VisionPass bir gözetim sistemi değil, açık rızaya dayalı bir mobilite kiml
 ---
 
 ## Kurulum (PoC)
+pip install -r requirements.txt
 
+---
+
+## Yol Haritası
+
+Kısa vadede Paycell QR entegrasyonu ile hibrit bir geçiş modeli önerilmektedir.
+
+Orta vadede metro, otobüs ve tramvay sistemleriyle entegrasyon hedeflenmektedir.
+
+Uzun vadede VisionPass protokolünün akıllı şehirlerde standart bir mobilite altyapısı haline gelmesi amaçlanmaktadır.
