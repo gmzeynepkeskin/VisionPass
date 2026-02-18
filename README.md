@@ -1,4 +1,4 @@
-# VisionPass  
+# VisionPass
 ## Otonom ve Açık Rızaya Dayalı Dijital Mobilite Kimlik Protokolü
 
 VisionPass, toplu taşıma sistemlerinde fiziksel turnike ve kart bağımlılığını azaltmayı hedefleyen, açık rızaya dayalı dijital bir mobilite kimlik altyapısıdır.
@@ -48,33 +48,39 @@ Bu sayede fiziksel kart taşıma veya turnike temasına ihtiyaç duyulmaz.
 
 ## Sistem Mimarisi
 
-### Algılama Katmanı  
+### Algılama Katmanı
 YOLOv8 modeli kullanılarak kalabalık ortamlarda gerçek zamanlı insan tespiti yapılır.
 
-### Takip Katmanı  
+### Takip Katmanı
 DeepSORT ile tespit edilen her kişi için benzersiz bir takip kimliği oluşturulur.
 
-### Kimlik Vektörleştirme  
+### Kimlik Vektörleştirme
 ArcFace algoritması ile yüz verisi embedding vektörüne dönüştürülür. Ham görüntü saklanmaz.
 
-### Otonom Ücret Motoru  
+### Otonom Ücret Motoru
 Giriş ve çıkış noktaları eşleştirilir, mesafe hesaplanır ve ücret otomatik olarak tahsil edilir.
 
 ---
 
 ## Sistem Akışı
 Kamera / Video
-↓
+|
+v
 YOLOv8 (İnsan Tespiti)
-↓
+|
+v
 DeepSORT (Takip)
-↓
+|
+v
 ArcFace (Yüz Embedding)
-↓
+|
+v
 Giriş-Çıkış Eşleştirme
-↓
+|
+v
 Ücret Hesaplama
-↓
+|
+v
 Paycell / Veritabanı
 ---
 
@@ -88,7 +94,7 @@ Sistem “Privacy by Design” prensibiyle tasarlanmıştır.
 - Şifrelenmiş ve geri döndürülemez kimlik vektörleri kullanılır  
 - Sistem yalnızca açık rıza vermiş kullanıcılar için aktiftir  
 
-VisionPass bir gözetim sistemi değil, açık rızaya dayalı bir mobilite kimlik altyapısı önerisidir.
+VisionPass bir gözetim sistemi değildir; açık rızaya dayalı mobilite kimlik altyapısı önerisidir.
 
 ---
 
@@ -104,24 +110,10 @@ VisionPass bir gözetim sistemi değil, açık rızaya dayalı bir mobilite kiml
 ---
 
 ## Kurulum
+
+Önce gerekli paketleri yükleyin:
+
+```bash
 pip install -r requirements.txt
----
-
-## Çalıştırma
-
-Kamera ile çalıştırmak için:
-python main.py –camera 0
-Video dosyası ile test etmek için:
-python main.py –video test.mp4
----
-
-## Yol Haritası
-
-**Kısa Vadede:**  
-Paycell QR entegrasyonu ile hibrit bir geçiş modeli.
-
-**Orta Vadede:**  
-Metro, otobüs ve tramvay sistemleriyle entegrasyon.
-
-**Uzun Vadede:**  
-Akıllı şehirlerde standart mobilite kimlik protokolü haline gelmek.
+python main.py --camera 0
+python main.py --video test.mp4
