@@ -1,81 +1,79 @@
 # VisionPass
-## Autonomous Consent-Based Mobility Identity Protocol
+## Otonom ve Açık Rızaya Dayalı Dijital Mobilite Kimlik Protokolü
 
-> Built as a vision project for Turkcell's "Yarının Teknoloji Liderleri" Program.
+VisionPass, toplu taşıma sistemlerinde fiziksel turnike ve kart bağımlılığını azaltmayı hedefleyen, açık rızaya dayalı dijital bir mobilite kimlik altyapısıdır. Proje, Turkcell “Yarının Teknoloji Liderleri” programı kapsamında geliştirilmiştir.
 
-VisionPass is a consent-based digital mobility identity protocol designed to eliminate physical turnstiles and hardware dependency in public transportation systems.
-
-Developed by Zeynep Keskin, Ankara University Food Engineering student and system architecture candidate, the project combines computer vision, edge AI, and telecom ecosystem integration to enable frictionless urban mobility.
+Amaç, mevcut ulaşım altyapısını tamamen değiştirmek yerine, var olan kamera sistemleri ve yapay zekâ teknolojileri üzerinden serbest akış prensibine dayalı daha verimli bir model önermektir.
 
 ---
 
-## 🚀 Problem
+## Problem Tanımı
 
-Urban transportation systems still rely on:
-- Physical transportation cards
-- QR code scanning
-- Hardware-based turnstiles
+Günümüzde toplu taşıma sistemleri:
 
-These create:
-- Bottlenecks during peak hours
-- High operational costs
-- Maintenance dependency
-- Scalability limitations
+- Fiziksel ulaşım kartlarına
+- QR kod okutma süreçlerine
+- Turnike donanımına
 
----
+bağımlıdır.
 
-## 💡 Solution
-
-VisionPass introduces a **free-flow transportation model** powered by:
-
-- Real-time human detection
-- Consent-based biometric identity verification
-- Autonomous fare calculation
-- Background digital payment integration via Paycell
-
-The system operates only for users who provide explicit consent within the Paycell ecosystem.
+Bu yapı özellikle yoğun saatlerde kapasite kaybına, yüksek operasyon ve bakım maliyetlerine ve donanım temelli darboğazlara neden olmaktadır.
 
 ---
 
-## 🧠 System Architecture
+## Çözüm Yaklaşımı
 
-### 1️⃣ Detection Layer  
-Real-time person detection using YOLOv8 in high-density environments.
+VisionPass, açık rıza vermiş kullanıcılar için çalışan dijital bir mobilite kimlik protokolü sunar.
 
-### 2️⃣ Identity Vectorization  
-Face embeddings generated using ArcFace are immediately converted into encrypted, non-reversible identity vectors.  
-No raw images are stored.
+Sistem:
 
-### 3️⃣ Autonomous Fare Engine  
-Entry and exit stations are matched, distance is calculated, and fare is automatically charged via Paycell APIs.
+- Gerçek zamanlı insan tespiti yapar
+- Kimliği matematiksel vektörlere dönüştürür
+- Giriş ve çıkış noktalarını eşleştirir
+- Mesafeye dayalı ücret hesaplar
+- Ödemeyi Paycell altyapısı üzerinden arka planda gerçekleştirir
 
----
-
-## 🔐 Privacy & Security (Privacy by Design)
-
-- No video storage  
-- No facial image storage  
-- On-device processing  
-- Encrypted identity vectors  
-- Explicit user consent required  
-
-VisionPass is not a surveillance system.  
-It is a **consent-driven mobility identity infrastructure**.
+Bu sayede fiziksel kart taşıma veya turnike temasına ihtiyaç duyulmaz.
 
 ---
 
-## 🛠 Technology Stack
+## Sistem Mimarisi
+
+Algılama Katmanı:  
+YOLOv8 modeli kullanılarak kalabalık ortamlarda gerçek zamanlı insan tespiti yapılır.
+
+Kimlik Vektörleştirme:  
+ArcFace algoritması ile yüz verisi embedding vektörüne dönüştürülür. Ham görüntü saklanmaz.
+
+Otonom Ücret Motoru:  
+Giriş ve çıkış noktaları eşleştirilir, mesafe hesaplanır ve ücret otomatik olarak tahsil edilir.
+
+---
+
+## Gizlilik ve Güvenlik
+
+Sistem “Privacy by Design” prensibiyle tasarlanmıştır.
+
+- Video kaydı tutulmaz
+- Ham yüz görüntüsü saklanmaz
+- İşlemler mümkün olduğunca uçta (edge) gerçekleştirilir
+- Şifrelenmiş ve geri döndürülemez kimlik vektörleri kullanılır
+- Sistem yalnızca açık rıza vermiş kullanıcılar için aktiftir
+
+VisionPass bir gözetim sistemi değil, açık rızaya dayalı bir mobilite kimlik altyapısı önerisidir.
+
+---
+
+## Kullanılan Teknolojiler
 
 - Python
 - OpenCV
-- YOLOv8 (Ultralytics)
+- YOLOv8
 - ArcFace
 - DeepSORT
 - PyTorch
 
 ---
 
-## 📦 Installation (PoC)
+## Kurulum (PoC)
 
-```bash
-pip install -r requirements.txt
