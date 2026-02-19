@@ -1,11 +1,9 @@
 # VisionPass
 ## Otonom ve Açık Rızaya Dayalı Dijital Mobilite Kimlik Protokolü
 
-VisionPass, toplu taşıma sistemlerinde fiziksel turnike ve kart bağımlılığını azaltmayı hedefleyen, açık rızaya dayalı dijital bir mobilite kimlik altyapısıdır.
+VisionPass, toplu taşıma sistemlerinde fiziksel turnike ve kart bağımlılığını azaltmayı hedefleyen, açık rızaya dayalı dijital bir mobilite kimlik altyapısıdır. Proje, Turkcell “Yarının Teknoloji Liderleri” programı kapsamında geliştirilmiştir.
 
-Proje, Turkcell “Yarının Teknoloji Liderleri” programı kapsamında geliştirilmiştir.
-
-Amaç; mevcut ulaşım altyapısını tamamen değiştirmek yerine, var olan kamera sistemleri ve yapay zekâ teknolojileri üzerinden serbest akış (free-flow) prensibine dayalı daha verimli ve ölçeklenebilir bir model önermektir.
+Amaç, mevcut ulaşım altyapısını tamamen değiştirmek yerine, var olan kamera sistemleri ve yapay zekâ teknolojileri üzerinden serbest akış prensibine dayalı daha verimli bir model önermektir.
 
 ---
 
@@ -13,19 +11,13 @@ Amaç; mevcut ulaşım altyapısını tamamen değiştirmek yerine, var olan kam
 
 Günümüzde toplu taşıma sistemleri:
 
-- Fiziksel ulaşım kartlarına  
-- QR kod okutma süreçlerine  
-- Turnike donanımına  
+- Fiziksel ulaşım kartlarına
+- QR kod okutma süreçlerine
+- Turnike donanımına
 
 bağımlıdır.
 
-Bu yapı özellikle yoğun saatlerde:
-
-- Kapasite kaybına  
-- Yüksek operasyon ve bakım maliyetlerine  
-- Donanım temelli darboğazlara  
-
-neden olmaktadır.
+Bu yapı özellikle yoğun saatlerde kapasite kaybına, yüksek operasyon ve bakım maliyetlerine ve donanım temelli darboğazlara neden olmaktadır.
 
 ---
 
@@ -35,12 +27,11 @@ VisionPass, açık rıza vermiş kullanıcılar için çalışan dijital bir mob
 
 Sistem:
 
-- Gerçek zamanlı insan tespiti yapar  
-- Kişiyi takip eder ve benzersiz ID üretir  
-- Yüz bilgisini matematiksel embedding vektörüne dönüştürür  
-- Giriş ve çıkış noktalarını eşleştirir  
-- Mesafeye dayalı ücret hesaplar  
-- Ödemeyi Paycell altyapısı üzerinden arka planda gerçekleştirir  
+- Gerçek zamanlı insan tespiti yapar
+- Kimliği matematiksel vektörlere dönüştürür
+- Giriş ve çıkış noktalarını eşleştirir
+- Mesafeye dayalı ücret hesaplar
+- Ödemeyi Paycell altyapısı üzerinden arka planda gerçekleştirir
 
 Bu sayede fiziksel kart taşıma veya turnike temasına ihtiyaç duyulmaz.
 
@@ -48,72 +39,51 @@ Bu sayede fiziksel kart taşıma veya turnike temasına ihtiyaç duyulmaz.
 
 ## Sistem Mimarisi
 
-### Algılama Katmanı
+Algılama Katmanı:  
 YOLOv8 modeli kullanılarak kalabalık ortamlarda gerçek zamanlı insan tespiti yapılır.
 
-### Takip Katmanı
-DeepSORT ile tespit edilen her kişi için benzersiz bir takip kimliği oluşturulur.
-
-### Kimlik Vektörleştirme
+Kimlik Vektörleştirme:  
 ArcFace algoritması ile yüz verisi embedding vektörüne dönüştürülür. Ham görüntü saklanmaz.
 
-### Otonom Ücret Motoru
+Otonom Ücret Motoru:  
 Giriş ve çıkış noktaları eşleştirilir, mesafe hesaplanır ve ücret otomatik olarak tahsil edilir.
 
----
-
-## Sistem Akışı
-Kamera / Video
-|
-v
-YOLOv8 (İnsan Tespiti)
-|
-v
-DeepSORT (Takip)
-|
-v
-ArcFace (Yüz Embedding)
-|
-v
-Giriş-Çıkış Eşleştirme
-|
-v
-Ücret Hesaplama
-|
-v
-Paycell / Veritabanı
 ---
 
 ## Gizlilik ve Güvenlik
 
 Sistem “Privacy by Design” prensibiyle tasarlanmıştır.
 
-- Video kaydı tutulmaz  
-- Ham yüz görüntüsü saklanmaz  
-- İşlemler mümkün olduğunca uçta (edge) gerçekleştirilir  
-- Şifrelenmiş ve geri döndürülemez kimlik vektörleri kullanılır  
-- Sistem yalnızca açık rıza vermiş kullanıcılar için aktiftir  
+- Video kaydı tutulmaz
+- Ham yüz görüntüsü saklanmaz
+- İşlemler mümkün olduğunca uçta (edge) gerçekleştirilir
+- Şifrelenmiş ve geri döndürülemez kimlik vektörleri kullanılır
+- Sistem yalnızca açık rıza vermiş kullanıcılar için aktiftir
 
-VisionPass bir gözetim sistemi değildir; açık rızaya dayalı mobilite kimlik altyapısı önerisidir.
+VisionPass bir gözetim sistemi değil, açık rızaya dayalı bir mobilite kimlik altyapısı önerisidir.
 
 ---
 
 ## Kullanılan Teknolojiler
 
-- Python  
-- OpenCV  
-- YOLOv8  
-- DeepSORT  
-- ArcFace  
-- PyTorch  
+- Python
+- OpenCV
+- YOLOv8
+- ArcFace
+- DeepSORT
+- PyTorch
 
 ---
 
-## Kurulum
-
-Önce gerekli paketleri yükleyin:
-
-```bash
+## Kurulum (PoC)
 pip install -r requirements.txt
-python main.py --camera 0
-python main.py --video test.mp4
+
+---
+
+## Yol Haritası
+
+Kısa vadede Paycell QR entegrasyonu ile hibrit bir geçiş modeli önerilmektedir.
+
+Orta vadede metro, otobüs ve tramvay sistemleriyle entegrasyon hedeflenmektedir.
+
+Uzun vadede VisionPass protokolünün akıllı şehirlerde standart bir mobilite altyapısı haline gelmesi amaçlanmaktadır.
